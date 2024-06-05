@@ -276,3 +276,60 @@ body {
     font-size: 17px;
     color: #888888;
 }
+
+.unit-card__wrapper {
+    padding: 20px 30px;
+    outline: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.unit-card p {
+    font-size: 18px;
+}
+
+.mginput {
+    width: 100%;
+    padding-top: 3px;
+    padding-right: 1px;
+    padding-bottom: 3px;
+    padding-left: 1px;
+    font-size: 21px;
+    color: #fbfaf5;
+    background-color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #fbfaf5;
+}
+
+.mginput::placeholder {
+    color: #fbfaf5;
+}
+
+.unit-card__description:focus {
+    outline: none;
+}
+
+.unit-card__menu {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+}
+
+.unit-card__menu li {
+    font-size: 24px;
+    margin-right: 30px;
+}
+
+.unit-card__menu li a {
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+.unit-card__menu li:last-of-type {
+    margin-right: 0;
+    margin-left: auto;
+}

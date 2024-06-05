@@ -5,7 +5,7 @@ import React from 'react';
 export const VacancyList = () => {
     return (
         <ul className='staff-units'>
-            {vacancyList.map((item, index) => (<ListItem title={item.title} key={index} />))}
+            {vacancyList.map((item, index) => (<ListItem item={item} key={index} />))}
         </ul>
     );
 };

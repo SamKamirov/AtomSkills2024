@@ -1,13 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-export const ListItem = ({title}) => {
+export const ListItem = ({item}) => {
     return (
         <li className='staff-units__item'>
-            <a
-                className='card'
-                href='/staff-unit/64f027ec-5224-4102-96bb-0b5bc4cb27df'>
-                <h3 className='card__title'>{title}</h3>
-            </a>
+            <Link className='card' to={`/staff-unit/${item.id}`}>
+                <h3 className='card__title'>{item.title}</h3>
+            </Link>
         </li>
     );
 };

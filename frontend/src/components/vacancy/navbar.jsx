@@ -1,7 +1,7 @@
 import React from 'react';
 import {Fragment} from 'react';
 
-export const Navbar = () => {
+export const Navbar = ({onClick}) => {
     return (
         <Fragment>
             <h2 className='title'>Вакансии</h2>
@@ -22,7 +22,7 @@ export const Navbar = () => {
                         Все
                     </a>
                 </li>
-                <li className='menu__item menu__item--right'>
+                <li className='menu__item menu__item--right' onClick={() => onClick(true)}>
                     <a className='menu__link' data-action='show-add' href='#'>
                         Добавить
                     </a>
