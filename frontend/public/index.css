@@ -1,335 +1,335 @@
+@import './login/login.css';
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: system-ui, sans-serif;
-    color: #fbfaf5;
-    width: 100vw;
-    display: flex;
+  margin: 0;
+  font-family: system-ui, sans-serif;
 }
 
 #root {
-    display: flex;
+  display: flex;
+  min-height: 100vh;
+  color: #fbfaf5;
+  width: 100vw;
 }
 
 .panel {
-    overflow-y: scroll;
-    height: 100vh;
-    width: 40vw;
-    padding: 30px;
+  overflow-y: scroll;
+  height: 100vh;
+  width: 40vw;
+  padding: 30px;
 }
 
 .panel--colored {
-    background-image: linear-gradient(
-        135deg,
-        #dbab5d 0%,
-        #732585 50%,
-        #2050ca 100%
-    );
+  background-image: linear-gradient(
+    135deg,
+    #dbab5d 0%,
+    #732585 50%,
+    #2050ca 100%
+  );
 }
 
 .panel--gray {
-    background-color: #666666;
+  background-color: #666666;
 }
 
 .panel--calendar {
-    width: 20vw;
+  width: 20vw;
 }
 
 .panel--single {
-    width: 100vw;
+  width: 100vw;
 }
 
 .panel-limiter {
-    max-width: 1000px;
-    margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .title {
-    text-transform: uppercase;
-    font-size: 30px;
-    letter-spacing: 2px;
-    text-align: center;
-    margin-top: 45px;
-    margin-bottom: 35px;
+  text-transform: uppercase;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 35px;
 }
 
 .title--calendar {
-    color: #333333;
-    text-align: left;
+  color: #333333;
+  text-align: left;
 }
 
 .staff-units {
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    margin-top: 15px;
-    margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-top: 15px;
+  margin-bottom: 0;
 }
 
 .staff-units__item {
-    list-style: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .card {
-    display: block;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-decoration: none;
-    padding-left: 15px;
-    padding-right: 15px;
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .card:hover {
-    outline: 1px solid #ffffff;
+  outline: 1px solid #ffffff;
 }
 
 .card__title {
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #fbfaf5;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #fbfaf5;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .card__detail {
-    margin-top: 5px;
-    margin-bottom: 0;
-    font-size: 13px;
-    color: #fbfaf5;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-size: 13px;
+  color: #fbfaf5;
 }
 
 .card__detail a {
-    color: #fbfaf5;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fbfaf5;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .place {
-    margin-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .card--inner:hover {
-    outline: 0;
+  outline: 0;
 }
 
 .menu {
-    height: 20px;
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    display: flex;
-    margin-bottom: 40px;
+  height: 20px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  margin-bottom: 40px;
 }
 
 .menu__item {
-    list-style: none;
-    margin-right: 20px;
+  list-style: none;
+  margin-right: 20px;
 }
 
 .menu__item--right {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .menu__item:last-of-type {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .menu__link {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    color: #fbfaf5;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 400;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: #fbfaf5;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .menu__link--plus {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .menu__link--active {
-    border-bottom: 4px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 4px solid rgba(255, 255, 255, 0.5);
 }
 
 .add,
 .add-candidate {
-    margin: 40px 0 60px 0;
+  margin: 40px 0 60px 0;
 }
 
 .form {
-    padding: 0 15px;
+  padding: 0 15px;
 }
 
 .form p {
 }
 
 .login-form {
-    width: 250px;
-    height: 250px;
-    margin: auto;
+  width: 250px;
+  height: 250px;
+  margin: auto;
 }
 
 .calendar {
 }
 
 .calendar__title {
-    margin: 0;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #999999;
-    text-transform: uppercase;
-    color: #333333;
-    font-size: 17px;
+  margin: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #999999;
+  text-transform: uppercase;
+  color: #333333;
+  font-size: 17px;
 }
 
 .calendar__list {
-    margin-bottom: 30px;
-    padding-left: 0;
-    list-style: none;
-    padding-left: 10px;
+  margin-bottom: 30px;
+  padding-left: 0;
+  list-style: none;
+  padding-left: 10px;
 }
 
 .calendar__list:last-of-type {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .calendar__item {
-    padding: 10px 0;
-    border-bottom: 1px solid #bbbbbb;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid #bbbbbb;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .calendar__item::before {
-    position: absolute;
-    content: '';
-    width: 4px;
-    height: calc(100% - 2 * 10px - 3px);
-    background-color: #dddddd;
-    left: -10px;
-    top: 13px;
+  position: absolute;
+  content: '';
+  width: 4px;
+  height: calc(100% - 2 * 10px - 3px);
+  background-color: #dddddd;
+  left: -10px;
+  top: 13px;
 }
 
 .calendar__item--red::before {
-    background-color: #b36b77;
+  background-color: #b36b77;
 }
 
 .calendar__item--blue::before {
-    background-color: #5ed1e0;
+  background-color: #5ed1e0;
 }
 
 .calendar__item--green::before {
-    background-color: #3db17b;
+  background-color: #3db17b;
 }
 
 .calendar__item:last-of-type {
-    border-bottom: 0;
+  border-bottom: 0;
 }
 
 .calendar__wrapper {
-    display: flex;
+  display: flex;
 }
 
 .calendar__left {
-    flex-grow: 1;
-    flex-shrink: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .calendar__right {
 }
 
 .calendar__name {
-    font-size: 17px;
-    color: #333333;
-    text-transform: none;
-    font-weight: 700;
+  font-size: 17px;
+  color: #333333;
+  text-transform: none;
+  font-weight: 700;
 }
 
 .calendar__subname {
-    color: #666666;
+  color: #666666;
 }
 
 .calendar__start {
-    font-size: 17px;
-    color: #000000;
-    font-weight: 400;
+  font-size: 17px;
+  color: #000000;
+  font-weight: 400;
 }
 
 .calendar__end {
-    font-size: 17px;
-    color: #888888;
+  font-size: 17px;
+  color: #888888;
 }
 
 .unit-card__wrapper {
-    padding: 20px 30px;
-    outline: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 20px 30px;
+  outline: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .unit-card p {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .mginput {
-    width: 100%;
-    padding-top: 3px;
-    padding-right: 1px;
-    padding-bottom: 3px;
-    padding-left: 1px;
-    font-size: 21px;
-    color: #fbfaf5;
-    background-color: transparent;
-    -webkit-appearance: none;
-    appearance: none;
-    border: 0;
-    border-radius: 0;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #fbfaf5;
+  width: 100%;
+  padding-top: 3px;
+  padding-right: 1px;
+  padding-bottom: 3px;
+  padding-left: 1px;
+  font-size: 21px;
+  color: #fbfaf5;
+  background-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #fbfaf5;
 }
 
 .mginput::placeholder {
-    color: #fbfaf5;
+  color: #fbfaf5;
 }
 
 .unit-card__description:focus {
-    outline: none;
+  outline: none;
 }
 
 .unit-card__menu {
-    padding-left: 0;
-    list-style: none;
-    display: flex;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
 }
 
 .unit-card__menu li {
-    font-size: 24px;
-    margin-right: 30px;
+  font-size: 24px;
+  margin-right: 30px;
 }
 
 .unit-card__menu li a {
-    color: #ffffff;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-    text-decoration: none;
+  color: #ffffff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  text-decoration: none;
 }
 
 .unit-card__menu li:last-of-type {
-    margin-right: 0;
-    margin-left: auto;
+  margin-right: 0;
+  margin-left: auto;
 }

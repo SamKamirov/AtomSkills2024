@@ -1,15 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { createApi } from "../api/api";
-import { AppData, SliceNames } from "./app-data";
+import reducer from "./app-data";
 
-const api = createApi();
-
-const rootReducer = combineReducers({
-  [SliceNames.AppData]: AppData.reducer
-})
+export const api = createApi();
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    app: reducer
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       thunk: {
