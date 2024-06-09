@@ -1,0 +1,26 @@
+services: 
+  frontend:
+    container_name: "TODO_FRONTEND"
+    build: 
+      context: ../frontend
+      dockerfile: dockerfile
+    volumes:
+      - ./front-build:/var/www/build
+  
+  backend:
+    container_name: "TODO_BACKEND"
+    build:  
+      context: ../backend
+      dockerfile: dockerfile
+    ports:
+      - "8081:8081"
+
+  nginx:
+    depends_on:
+      - frontend
+    image: nginx
+    volumes:
+      - ./front-build:/var/www/
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+    ports:
+      - "8100:80"
