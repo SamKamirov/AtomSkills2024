@@ -1,6 +1,24 @@
 @import './login/login.css';
+@import './loading.css';
+
 html {
   box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.exit-button {
+  color: #000000;
+}
+
+.control__wrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 
 *,
@@ -23,6 +41,12 @@ body {
   min-height: 100vh;
   color: #fbfaf5;
   width: 100vw;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .panel {
@@ -282,7 +306,7 @@ body {
   outline: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.unit-card p {
+.unit-card__title {
   font-size: 18px;
 }
 

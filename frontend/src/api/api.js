@@ -8,6 +8,16 @@ export const createApi = () => {
 
   api.interceptors.request.use(
     (config) => {
+      // const token = getToken();
+      // if (token && config.headers) {
+      //   config.headers['x-token'] = token;
+      // }
+
+      const user = localStorage.getItem('user');
+
+      if (user && config.headers) {
+        config.headers['user'] = user;
+      }
       return config;
     });
 
@@ -17,7 +27,6 @@ export const createApi = () => {
       if (error.response && shouldDisplayError(error.response)) {
         const detailMessage = (error.response.data);
       }
-
       throw error;
     }
   );

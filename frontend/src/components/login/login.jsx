@@ -15,9 +15,6 @@ export const Login = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.app.user);
 
-  useEffect(() => {
-    console.log(user);
-  }, [user])
 
   const handleSubmit = (e) => {
     const login = loginRef.current.value;
@@ -26,6 +23,12 @@ export const Login = () => {
     dispatch(loginAction({ login, password }));
     navigate('dashboard');
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate('dashboard')
+    }
+  }, [user, navigate])
 
   return (
     <Fragment>

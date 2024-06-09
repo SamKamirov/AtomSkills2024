@@ -1,4 +1,4 @@
-export const vacancyList = [
+export const groupList = [
   {
     id: 1,
     title: 'Группа 1'
