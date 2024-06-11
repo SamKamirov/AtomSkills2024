@@ -1,5 +1,6 @@
 @import './login/login.css';
 @import './loading.css';
+@import './admin.css';
 
 html {
   box-sizing: border-box;
@@ -154,7 +155,6 @@ body {
 }
 
 .menu {
-  height: 20px;
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;

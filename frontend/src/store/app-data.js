@@ -13,7 +13,7 @@ export const loginAction = createAsyncThunk(
     const user = {
       login: login,
       password: password,
-      role: 'student'
+      role: 'teacher'
     }
     localStorage.setItem('user', JSON.stringify(user))
     return user;
@@ -43,9 +43,35 @@ export const logoutAction = createAsyncThunk(
   }
 )
 
+export const getTeachers = createAsyncThunk(
+  'getTeachers',
+  async (_arg, { extra: api }) => {
+    const { data } = await api.get('/teachers');
+    return data.data;
+  }
+)
+
+export const sendTeacher = createAsyncThunk(
+  'sendTeacher',
+  async ({ teacher }, { extra: api }) => {
+    const adapted = adaptTeacherToServer(teacher);
+    const { data } = await api.post('/teachers', adaptTeacherToServer(teacher));
+  }
+)
+
+const adaptTeacherToServer = (teacher) => {
+  return {
+    teacher_id: Number(teacher.teacher_id),
+    age: Number(teacher.age),
+    fio: teacher.fio,
+    courses: teacher.courses
+  }
+}
+
 const initialState = {
   groups: groupList,
   courses: courses,
+  teachers: null,
   loading: false,
   user: null
 };
@@ -77,6 +103,9 @@ const AppData = createSlice({
       })
       .addCase(logoutAction.fulfilled, (state, action) => {
         state.user = null;
+      })
+      .addCase(getTeachers.fulfilled, (state, action) => {
+        state.teachers = action.payload;
       })
   },
 })

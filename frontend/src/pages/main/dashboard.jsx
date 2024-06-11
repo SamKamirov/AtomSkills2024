@@ -6,8 +6,8 @@ import { Student } from '../../components/dashboards/student';
 import { Teacher } from '../teacher/teacher';
 import { Empty } from '../../components/empty';
 import { Middle } from '../../components/sections/middle';
-import { Left } from '../../components/sections/left';
 import { Calendar } from '../../components/calendar';
+import { Left } from '../../components/sections/left';
 
 const dashboards = {
   'teacher': Teacher,

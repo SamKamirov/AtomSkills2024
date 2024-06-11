@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const createApi = () => {
   const api = axios.create({
-    baseURL: 'http://45.86.181.61:8081',
+    baseURL: 'http://localhost:8082/api',
     timeout: 5000
   });
 

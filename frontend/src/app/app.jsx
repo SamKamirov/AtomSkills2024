@@ -5,6 +5,7 @@ import { CoursePreview } from '../components/preview/course-preview';
 import { ProtectedRoute } from '../components/protected-route/protected-route';
 import { Login } from '../components/login/login';
 import { GroupPreview } from '../components/preview/group-preview';
+import { Admin } from '../pages/admin';
 
 export const App = () => (
   <Routes>
@@ -13,9 +14,7 @@ export const App = () => (
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/course-unit/:id" element={<CoursePreview />} />
       <Route path="/group-unit/:id" element={<GroupPreview />} />
-      {/* <Route path="/staff-unit/:id" element={<StaffUnit />} />
-      <Route path="/staff-unit/:id" element={<StaffUnit />} />
-      <Route path="/staff-unit/:id" element={<StaffUnit />} /> */}
+      <Route path="/admin" element={<Admin />} />
     </Route>
     <Route path="/*" element={<Navigate to={'/'} replace />} />
   </Routes>
