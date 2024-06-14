@@ -1,83 +1,49 @@
 package main
 
 import (
-	"context"
-	"encoding/json"
-	"fmt"
-	_ "log"
-	"net/http"
-	"github.com/rs/cors"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-)
+	"log"
+	"os"
 
-const (
-	dbUser = "mongo_db_admin"
-	dbPass = "EXAMPLE_PASSWORD"
-	dbName = "study"
+	"github.com/study/config"
+	"github.com/study/routes"
+	"github.com/study/utils"
+
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	mux := http.NewServeMux() 
- mux.HandleFunc("/api/teachers", requestHandler) 
- 
- cors := cors.New(cors.Options{ 
-  AllowedOrigins: []string{"*"}, 
-  AllowedMethods: []string{ 
-   http.MethodPost, 
-   http.MethodGet, 
-   http.MethodDelete, 
-  }, 
-  AllowedHeaders: []string{"*"}, 
- }) 
- 
- handler := cors.Handler(mux) 
- http.ListenAndServe(":8082", handler)
-}
+	router := gin.Default()
 
-func requestHandler(w http.ResponseWriter, req *http.Request) {
+	// Настройка CORS
+	corsConfig := cors.DefaultConfig()
+	corsConfig.AllowAllOrigins = true
+	corsConfig.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
+	corsConfig.AllowHeaders = []string{"Origin", "Content-Type", "Authorization"}
+	router.Use(cors.New(corsConfig))
 
-	w.Header().Set("Content-Type", "application/json")
-
-	response := map[string]interface{}{}
-
-	ctx := context.Background()
-
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
-
+	// Инициализация базы данных
+	db, err := config.InitDB()
 	if err != nil {
-		fmt.Println(err.Error())
+		log.Fatal(err)
 	}
 
-	collection := client.Database(dbName).Collection("teachers")
+	// Настройка маршрутов
+	routes.RegisterRoutes(router, db)
 
-	data := map[string]interface{}{}
+	// CSRF Middleware
+	//router.Use(utils.CSRFMiddleware())
 
-	err = json.NewDecoder(req.Body).Decode(&data)
+	// OAuth 2.0 Middleware
+	router.Use(utils.OAuth2Middleware())
 
+	// Запуск сервера
+	port := "8082"
+	if p := os.Getenv("PORT"); p != "" {
+		port = p
+	}
+	err = router.Run(":" + port)
 	if err != nil {
-		fmt.Println(err.Error())
-	}
-
-	switch req.Method {
-	case "POST":
-		response, err = createTeacher(collection, ctx, data)
-	case "GET":
-		response, err = getTeachers(collection, ctx)
-	case "PUT":
-		response, err = updateTeachers(collection, ctx, data)
-	case "DELETE":
-		response, err = deleteTeacher(collection, ctx, data)
-	}
-
-	if err != nil {
-		response = map[string]interface{}{"error": err.Error()}
-	}
-
-	enc := json.NewEncoder(w)
-	enc.SetIndent("", "  ")
-
-	if err := enc.Encode(response); err != nil {
-		fmt.Println(err.Error())
+		log.Fatal(err)
 	}
 }
