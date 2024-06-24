@@ -1,0 +1,20 @@
+FROM golang:1.22.4
+
+WORKDIR /app
+COPY ./backend ./backend
+COPY ./tools ./tools
+
+
+WORKDIR /app/tools
+
+RUN go mod download
+
+WORKDIR /app/tools/cmd
+
+RUN go build -o ../tools
+
+WORKDIR /app/tools
+
+
+
+CMD ./tools data upload
